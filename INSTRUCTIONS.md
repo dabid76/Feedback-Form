@@ -7,7 +7,7 @@
 
 "And my last reminder of the day, which is my last reminder of every day, is...?" - Luke
 
- For this assignment, you will be creating a feedback form modeled after Prime's system. Feedback will be collected over 4 views, and when all steps are complete, your app will save the feedback in the database. In a separate part of the page, display the current feedback values and a submit button. 
+ For this assignment, you will be creating a feedback form modeled after Prime's system. Feedback will be collected over 4 views. In a separate review page, display the current feedback values and a submit button. and when all steps are complete, your app will save the feedback in the database. 
 
 ### SETUP
 
@@ -30,6 +30,7 @@ npm run client
 
 Create a multi-part form that allows users to leave feedback for today. 
 There will be 4 views for the form parts.
+
 The parts:
 - How are you feeling today?
 ![feeling](wireframes/feeling.png)
@@ -40,36 +41,37 @@ The parts:
 - Any comments you want to leave?
 ![comments](wireframes/comments.png)
 
-While there is no nav bar, each part of the form should be at its own route. Clicking next should move the user to the appropriate step in the process as well as update the `Review` Component.
+While there is no nav bar, each part of the form should be at its own route. Clicking next should move the user to the appropriate step in the process.
 
+### Input Validation
+
+Each step should only allow the user to advance to the next step if a score was provided. Be sure to tell the user in some way that a value must be provided.
+
+The `Comments` step does not need to be validated, an empty value is okay.
 
 ## THE REVIEW COMPONENT
 
-In addition to the multi-step form, the app needs to display the results of each step clearly and at all times. HINT: This will be your current redux values displayed on the DOM. 
+The last step of the process will allow the user to review their feedback. Users are not able to change their input on this step or go back for Base Mode. 
 
-The simplest way could be another component on the DOM which shows the results of the current survey and a Submit button.
-
-### Incomplete, Submit button is disabled:
-
-![comments](wireframes/comments.png)
-
-### Survey complete, Submit button is active:
-
-![comments](wireframes/review.png)
+![comments](wireframes/review-active.png)
 
 ## SUBMIT THE FEEDBACK
 
-The `Review` portion needs a submit button which will be clicked on to actually submit the completed feedback to the server. **This submit button should only be active when all of the survey steps are complete.**
+The `Review` step needs to have a submit button which will be clicked on to actually submit the completed feedback to the server.
 
-When the submit button is clicked, save the submission in the database. The user should see a submission success page.
+When the submit button is clicked, save the submission in the database. The user should see a submission success page. They can then click the button to take a new survey, which needs to reset all the data and go back to the first step.
 
 ![understanding](wireframes/page-five.png)
-
 
 
 ## STRETCH GOALS
 
 > NOTE: These stretch goals are intended to be completed in order.
+
+### UPDATE SCORES
+
+Allow the user to go back to a previous step and change their score. You still need to disallow empty values!
+
 
 ### ADMIN SECTION
 
