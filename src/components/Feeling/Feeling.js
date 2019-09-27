@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
+import Understanding from '../Understanding/Understanding';
+
 
 class Feeling extends Component {
 
@@ -13,6 +15,7 @@ class Feeling extends Component {
     handleSubmit = () => {
         console.log('btn getting click')
         // this.props.history.push('/checkout')
+        
         this.props.dispatch({ type: 'FEELINGS', payload: this.state.feelingNumbers })
     }
 
@@ -36,13 +39,15 @@ class Feeling extends Component {
     render() {
         return (
             <>
+            
                 <h1>How are you feeling?</h1>
                 <p>Feeling?</p>
                 <div className="feelings">
                     <input type='number' pattern="[0-5]" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
+                    
                 </div>
                 
-            <button onClick={this.handleSubmit} className="nextBtn">NEXT</button>
+                 <button onClick={this.handleSubmit} className="nextBtn">NEXT</button>
             </>
         );
     }
