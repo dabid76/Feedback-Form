@@ -11,6 +11,20 @@ import Comment from '../Comment/Comment';
 
 
 class App extends Component {
+
+  componentDidMount = () => {
+    this.getPizza();
+  }
+  getPizza = () => {
+    axios.get('/feedback')
+    .then((response) => {
+      this.props.dispatch({type: 'LIST_PIZZAS', payload: response.data})
+    }).catch((error) => {
+      console.log('this is the error:', error)
+    })
+  }
+
+
   render() {
     return (
       <Router>
@@ -27,7 +41,7 @@ class App extends Component {
             <li className="main-nav-li">
               <Link to="/">Feeling</Link>
             </li>
-            <li className="main-nav-li">
+            {/* <li className="main-nav-li">
               <Link to="/Understanding">Understanding</Link>
             </li>
             <li className="main-nav-li">
@@ -35,7 +49,7 @@ class App extends Component {
             </li>
             <li className="main-nav-li">
               <Link to="/Support">Support</Link>
-            </li>
+            </li> */}
           </ul>
           <Route path="/" exact component={Feeling} />
         <Route path="/Understanding" component={Understanding}/>

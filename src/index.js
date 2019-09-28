@@ -5,11 +5,19 @@ import App from './components/App/App';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
+import { stat } from 'fs';
 
-const feelingReducer = (state = [], action) => {
+let feelings = {
+    numbers: [1,2,3,4,5],
+}
+
+const feelingReducer = (state = feelings, action) => {
     if (action.type === 'FEELINGS') {
         console.log('payload', action.payload)
-        return action.payload
+        return {
+            ...state,
+            numbers: action.payload
+        }
     } 
     return state;
 }

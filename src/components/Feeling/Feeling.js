@@ -8,13 +8,13 @@ class Feeling extends Component {
 
     state = {
         feelingNumbers: {
-            numbers: '',
+            numbers: [1, 2, 3, 4, 5],
         }
     }
 
     handleSubmit = () => {
         console.log('btn getting click')
-        // this.props.history.push('/checkout')
+        this.props.history.push('/Understanding')
         
         this.props.dispatch({ type: 'FEELINGS', payload: this.state.feelingNumbers })
     }
@@ -27,9 +27,11 @@ class Feeling extends Component {
                 [propertyName]: event.target.value
             }
         })
+    // }
+    // postNumber = () => {
         axios.post('/feedback')
             .then(response => {
-                console.log(response)
+                console.log('in posted to database', response)
             }).catch(error => {
                 console.log('error in order form post ', error)
             })
@@ -43,7 +45,7 @@ class Feeling extends Component {
                 <h1>How are you feeling?</h1>
                 <p>Feeling?</p>
                 <div className="feelings">
-                    <input type='number' pattern="[0-5]" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
+                    <input type='number' onChange={(event) => this.handdleInputChange(event, 'numbers')} />
                     
                 </div>
                 

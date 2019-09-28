@@ -7,7 +7,7 @@ class Comment extends Component {
     
     handleSubmit = () => {
         console.log('btn getting click')
-        // this.props.history.push('/checkout')
+        // this.props.history.push('/Support')
         // this.props.dispatch({ type: 'FEELINGS', payload: this.state.feelingNumbers })
     }
 
@@ -20,6 +20,10 @@ class Comment extends Component {
                 <p>
                     Comments?
                 </p>
+                <div className="comments">
+                    <input  onChange={(event) => this.handdleInputChange(event, 'numbers')} />
+                    
+                </div>
 
                 
             <button onClick={this.handleSubmit} className="nextBtn">NEXT</button>

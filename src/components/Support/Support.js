@@ -9,7 +9,7 @@ class Support extends Component {
     
     handleSubmit = () => {
         console.log('btn getting click')
-        // this.props.history.push('/checkout')
+        this.props.history.push('/comment')
         // this.props.dispatch({ type: 'FEELINGS', payload: this.state.feelingNumbers })
     }
 
@@ -22,6 +22,10 @@ class Support extends Component {
                 <p>
                     Support?
                 </p>
+                <div className="support">
+                    <input type='number' pattern="[0-5]" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
+                    
+                </div>
 
                 
             <button onClick={this.handleSubmit} className="nextBtn">NEXT</button>
