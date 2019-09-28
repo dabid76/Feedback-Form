@@ -7,13 +7,17 @@ import {connect} from 'react-redux'
 class Understanding extends Component {
 
     state= {
-        understanding: 0,
+        understanding: '',
     }
     
     handleSubmit = () => {
         console.log('btn getting click')
+        if (this.state.understanding === ''){
+            alert('You must fill the input.')
+        } else {
         this.props.history.push('/support')
         this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
+        }
     }
 
     handdleInputChange = (event) => {
@@ -28,7 +32,7 @@ class Understanding extends Component {
     render() {
         return (
             <>
-                <h1>How are you feeling?</h1>
+                <h1>How well are you understanding the content?</h1>
                 <p>
                     Understanding?
                 </p>

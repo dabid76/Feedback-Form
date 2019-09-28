@@ -3,7 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux'
 
 
-class Comment extends Component {
+class Review extends Component {
 
     state = {
         reviewFeedBack: []
@@ -28,6 +28,8 @@ class Comment extends Component {
         event.preventDefault();
 
         console.log('btn getting click')
+        this.props.history.push('/5')
+
 
         axios.post('/feedback', this.props.reduxStore.feelingReducer)
             .then(response => {
@@ -36,6 +38,8 @@ class Comment extends Component {
             }).catch(error => {
                 console.log('error in post to database ', error)
             })
+
+        
     }
     
 
@@ -55,6 +59,8 @@ class Comment extends Component {
                         <br></br>
                          Comments: {this.props.reduxStore.feelingReducer.comments}
                     </div>
+                    <br/>
+                    <br/>
             
             <button onClick={this.handleSubmit} className="submitBtn">Submit</button>
             </>
@@ -64,4 +70,4 @@ class Comment extends Component {
 const mapStateToProps = (reduxStore) => ({
     reduxStore
 })
-export default connect(mapStateToProps)(Comment);
+export default connect(mapStateToProps)(Review);

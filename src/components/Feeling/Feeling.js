@@ -33,7 +33,10 @@ class Feeling extends Component {
             <>
             
                 <h1>How are you feeling?</h1>
-                <p>Feeling?</p>
+                
+                <p>
+                    Feeling?
+                </p>
                 <div className="feelings">
                     <input type="number" min="1" max="5" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
                     

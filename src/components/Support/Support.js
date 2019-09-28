@@ -7,13 +7,17 @@ import {connect} from 'react-redux'
 class Support extends Component {
 
     state = {
-        support: 0,
+        support: '',
     }
     
     handleSubmit = () => {
         console.log('btn getting click')
+        if (this.state.support === ''){
+            alert('You must fill the input.')
+        } else {
         this.props.history.push('/comment')
         this.props.dispatch({ type: 'ADD_SUPPORT', payload: this.state.support  })
+        }
     }
 
     handdleInputChange = (event) => {
@@ -28,7 +32,7 @@ class Support extends Component {
     render() {
         return (
             <>
-                <h1>How are you feeling?</h1>
+                <h1>How well are you being supported?</h1>
                 <p>
                     Support?
                 </p>

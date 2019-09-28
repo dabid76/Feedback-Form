@@ -53,7 +53,7 @@ class Comments extends Component {
     render() {
         return (
             <>
-                <h1>How are you feeling?</h1>
+                <h1>Any comments you want to leave?</h1>
                 <p>
                     Comments?
                 </p>

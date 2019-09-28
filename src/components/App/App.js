@@ -8,6 +8,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comment from '../Comment/Comment';
 import Review from '../Review/Review';
+import ThankYou from '../ThankYou/5';
 
 
 
@@ -28,9 +29,9 @@ class App extends Component {
         </h1> */}
 
         <ul className="main-nav">
-            <li className="main-nav-li">
+            {/* <li className="main-nav-li">
               <Link to="/">Feeling</Link>
-            </li>
+            </li> */}
             {/* <li className="main-nav-li">
               <Link to="/Understanding">Understanding</Link>
             </li>
@@ -41,11 +42,12 @@ class App extends Component {
               <Link to="/Support">Support</Link>
             </li> */}
           </ul>
-          <Route path="/" exact component={Feeling} />
+        <Route path="/" exact component={Feeling} />
         <Route path="/Understanding" component={Understanding}/>
         <Route path="/Comment" component={Comment}/>
         <Route path="/Support" component={Support} />
         <Route path="/Review" component={Review} />
+        <Route path="/5" component={ThankYou} />
 
         {/* <Feeling /> */}
         {/* <Understanding /> */}
