@@ -7,22 +7,12 @@ import Feeling from '../Feeling/Feeling';
 import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comment from '../Comment/Comment';
+import Review from '../Review/Review';
 
 
 
 class App extends Component {
 
-  componentDidMount = () => {
-    this.data();
-  }
-  data = () => {
-    axios.get('/feedback')
-    .then((response) => {
-      this.props.dispatch({type: 'ADD_FEELING', payload: this.props.reduxStore.feelingReducer})
-    }).catch((error) => {
-      console.log('this is the error:', error)
-    })
-  }
 
 
   render() {
@@ -55,6 +45,7 @@ class App extends Component {
         <Route path="/Understanding" component={Understanding}/>
         <Route path="/Comment" component={Comment}/>
         <Route path="/Support" component={Support} />
+        <Route path="/Review" component={Review} />
 
         {/* <Feeling /> */}
         {/* <Understanding /> */}

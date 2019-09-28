@@ -4,42 +4,42 @@ import {connect} from 'react-redux'
 
 class Comment extends Component {
 
-
-
     state = {
         comments: '',
     }
 
-
-
     handdleInputChange = (event) => {
         console.log('handleChange', event.target.value)
 
-this.setState({
-    comments: event.target.value})
-}
+            this.setState({
+             comments: event.target.value})
+    }
 
     handleSubmit = (event) => {
+        event.preventDefault();
 
         console.log('btn getting click')
         // if (this.state.comments === ''){
         //     alert('You must fill comments.')
         //  {
-        // this.props.history.push('/Understanding')
+        this.props.history.push('/Review')
         
         this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
+        this.props.postData()
         // }
     
-
-
-        axios.post('/feedback', this.props.reduxStore.feelingReducer)
-            .then(response => {
-                // this.props.getPizza()
-                console.log('in posted to database', response)
-            }).catch(error => {
-                console.log('error in post to database ', error)
-            })
+    
+            // axios.post('/feedback', this.props.reduxStore.feelingReducer)
+            //     .then(response => {
+            //         this.props.getData()
+            //         console.log('in posted to database', response)
+            //     }).catch(error => {
+            //         console.log('error in post to database ', error)
+            //     })
     }
+
+        
+
     
 
     render() {
@@ -55,7 +55,7 @@ this.setState({
                 </div>
 
                 
-            <button onClick={this.handleSubmit} className="submitBtn">Submit</button>
+            <button onClick={this.handleSubmit} className="nextBtn">Next</button>
             </>
         );
     }
