@@ -32,7 +32,7 @@ class Support extends Component {
     render() {
         return (
             <>
-                <h1>How well are you being supported?</h1>
+                <h3>How well are you being supported?</h3>
                 <p>
                     Support?
                 </p>

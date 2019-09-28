@@ -9,6 +9,7 @@ import Support from '../Support/Support';
 import Comment from '../Comment/Comment';
 import Review from '../Review/Review';
 import ThankYou from '../ThankYou/5';
+import admin from '../admin/admin';
 
 
 
@@ -48,6 +49,7 @@ class App extends Component {
         <Route path="/Support" component={Support} />
         <Route path="/Review" component={Review} />
         <Route path="/5" component={ThankYou} />
+        <Route path="/admin" component={admin} />
 
         {/* <Feeling /> */}
         {/* <Understanding /> */}

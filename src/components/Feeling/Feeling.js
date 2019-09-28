@@ -32,7 +32,7 @@ class Feeling extends Component {
         return (
             <>
             
-                <h1>How are you feeling?</h1>
+                <h3>How are you feeling?</h3>
                 
                 <p>
                     Feeling?

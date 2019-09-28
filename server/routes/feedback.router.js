@@ -32,4 +32,18 @@ router.post('/',  ( req, res) => {
     })
 })
 
+router.delete( '/delete/:id', (req, res) => {
+    let id = req.params.id;
+    console.log('Delete route', id);
+    let queryText = `DELETE FROM "feeedback" WHERE "id" = $1;` ;
+    pool.query(queryText, [id]).then((result) => {
+        console.log(result)
+        res.sendStatus(200)
+    })
+    .catch((error) => {
+        console.log("error on router.delete", error)
+        res.sendStatus(500);
+    })
+}) 
+
 module.exports = router;
