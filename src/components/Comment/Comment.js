@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
+import { stringify } from 'querystring';
 
-class Comment extends Component {
+class Comments extends Component {
 
     state = {
         comments: '',
@@ -10,34 +11,41 @@ class Comment extends Component {
 
     handdleInputChange = (event) => {
         console.log('handleChange', event.target.value)
+        
 
             this.setState({
-             comments: event.target.value})
+                comments: event.target.value
+            })
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+
+    handleSubmit = () => {
+        // event.preventDefault();
 
         console.log('btn getting click')
         // if (this.state.comments === ''){
         //     alert('You must fill comments.')
-        //  {
-        this.props.history.push('/Review')
-        
-        this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
-        this.props.postData()
+        // } else {
+            this.props.history.push('/Review')
+            
+            this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
         // }
-    
-    
+            // this.props.getData()
+        
+        console.log(this.props.reduxStore.feelingReducer)
+        // {JSON.stringify(reviewFeedback)}
             // axios.post('/feedback', this.props.reduxStore.feelingReducer)
             //     .then(response => {
             //         this.props.getData()
-            //         console.log('in posted to database', response)
+            //         console.log('in posted to database', response.data)
+            //         // this.props.history.push('/Review')
             //     }).catch(error => {
             //         console.log('error in post to database ', error)
             //     })
-    }
+            }
+    
 
+        
         
 
     
@@ -50,7 +58,7 @@ class Comment extends Component {
                     Comments?
                 </p>
                 <div className="comments">
-                    <input  onChange={(event) => this.handdleInputChange(event, 'numbers')} />
+                    <input onChange={(event) => this.handdleInputChange(event, 'number')} />
                     
                 </div>
 
@@ -63,4 +71,4 @@ class Comment extends Component {
 const mapStateToProps = (reduxStore) => ({
     reduxStore
 })
-export default connect(mapStateToProps)(Comment);
+export default connect(mapStateToProps)(Comments);
