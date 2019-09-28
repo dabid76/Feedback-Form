@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import {connect} from 'react-redux'
 // import Understanding from '../Understanding/Understanding';
 
@@ -7,36 +7,26 @@ import {connect} from 'react-redux'
 class Feeling extends Component {
 
     state = {
-        feelingNumbers: {
-            numbers: [1, 2, 3, 4, 5],
+        feeling: ''
         }
-    }
+    
 
     handleSubmit = () => {
         console.log('btn getting click')
+        if (this.state.feeling === ''){
+            alert('You must fill the input.')
+        } else {
         this.props.history.push('/Understanding')
         
-        this.props.dispatch({ type: 'FEELINGS', payload: this.props.reduxStore.feelingReducer })
+        this.props.dispatch({ type: 'ADD_FEELING', payload: this.state.feeling })
+        }
     }
 
-    handdleInputChange = (event, propertyName) => {
-        console.log("in handlechange")
-        this.setState({
-            orderToSend: {
-                ...this.state.feelings,
-                [propertyName]: event.target.value
-            }
-        })
+    handdleInputChange = (event) => {
+        console.log('handleChange', event.target.value)
+            this.setState({
+                feeling: event.target.value})
     }
-    // postNumber = () => {
-    //     axios.post('/feedback')
-    //         .then(response => {
-    //             console.log('in posted to database', response)
-    //         }).catch(error => {
-    //             console.log('error in post to database ', error)
-    //         })
-    // }
-
 
     render() {
         return (
@@ -45,7 +35,7 @@ class Feeling extends Component {
                 <h1>How are you feeling?</h1>
                 <p>Feeling?</p>
                 <div className="feelings">
-                    <input type='number' onChange={(event) => this.handdleInputChange(event, 'numbers')} />
+                    <input type="number" min="1" max="5" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
                     
                 </div>
                 

@@ -7,36 +7,32 @@ class Comment extends Component {
 
 
     state = {
-        dataFeeling: {
-            feelings: [],
-            understanding:[],
-            support: [],
-            comments: '',
-        }
+        comments: '',
     }
+
+
+
+    handdleInputChange = (event) => {
+        console.log('handleChange', event.target.value)
+
+this.setState({
+    comments: event.target.value})
+}
 
     handleSubmit = (event) => {
 
-        // const feeling = this.props.reduxStore.feelingReducer.feeling
-        // const understanding = this.props.reduxStore.feelingReducer.understanding
-        // const support = this.props.reduxStore.feelingReducer.support
-        // const comment = this.props.reduxStore.feelingReducer.comments
-
-        // const dataFeeling = {
-        //     feeling: feeling.feeling,
-        //     understanding: understanding.understanding,
-        //     support: support.support,
-        //     comments: comment.comments
-        // }
-
-
-
-
-        // event.preventDefault();
         console.log('btn getting click')
-        // this.props.history.push('/comment')
-        // this.props.dispatch({ type: 'FEELINGS', payload: this.props.reduxStore.feelingReducer })
-        axios.post('/feedback', this.state.dataFeeling)
+        // if (this.state.comments === ''){
+        //     alert('You must fill comments.')
+        //  {
+        // this.props.history.push('/Understanding')
+        
+        this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
+        // }
+    
+
+
+        axios.post('/feedback', this.props.reduxStore.feelingReducer)
             .then(response => {
                 // this.props.getPizza()
                 console.log('in posted to database', response)
@@ -45,21 +41,6 @@ class Comment extends Component {
             })
     }
     
-
-
-    handdleInputChange = (event, propertyName) => {
-        console.log("in handlechange")
-        // this.setState({
-        //     numbers: {
-        //         ...this.state.numbers,
-        //         [propertyName]: event.target.value
-        //     }
-        // })
-    }
-    // postNumber = () => {
-
-
-
 
     render() {
         return (

@@ -13,12 +13,12 @@ import Comment from '../Comment/Comment';
 class App extends Component {
 
   componentDidMount = () => {
-    this.getPizza();
+    this.data();
   }
-  getPizza = () => {
+  data = () => {
     axios.get('/feedback')
     .then((response) => {
-      this.props.dispatch({type: 'FEELINGS', payload: response.data})
+      this.props.dispatch({type: 'ADD_FEELING', payload: this.props.reduxStore.feelingReducer})
     }).catch((error) => {
       console.log('this is the error:', error)
     })

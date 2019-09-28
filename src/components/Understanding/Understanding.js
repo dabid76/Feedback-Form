@@ -6,22 +6,22 @@ import {connect} from 'react-redux'
 
 class Understanding extends Component {
 
+    state= {
+        understanding: 0,
+    }
     
     handleSubmit = () => {
         console.log('btn getting click')
         this.props.history.push('/support')
-        this.props.dispatch({ type: 'FEELINGS', payload: this.props.reduxStore.feelingReducer })
+        this.props.dispatch({ type: 'ADD_UNDERSTANDING', payload: this.state.understanding })
     }
 
-    handdleInputChange = (event, propertyName) => {
-        console.log("in handlechange")
+    handdleInputChange = (event) => {
+        console.log('handleChange', event.target.value)
+
         this.setState({
-            orderToSend: {
-                ...this.props.feelings,
-                [propertyName]: event.target.value
-            }
-        })
-    }
+            understanding: event.target.value})
+}
 
 
 
@@ -33,7 +33,7 @@ class Understanding extends Component {
                     Understanding?
                 </p>
                 <div className="understanding">
-                    <input type='number' pattern="[0-5]" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
+                    <input type='number' min="1" max="5" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
                     
                 </div>
 

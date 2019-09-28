@@ -3,9 +3,10 @@ const router = express.Router();
 const pool = require('../modules/pool');
 
 // GET FEELING
-router.get('', (req, res) => {
-    console.log('in get router', req, res);
-    let queryText = 'SELECT * FROM "feedback";' ;
+router.get('/', (req, res) => {
+    let getData = req.body
+    console.log('in get router', getData);
+    let queryText = 'SELECT * FROM "feedback" ORDER BY "id";' ;
     pool.query(queryText)
     .then((result) => {
         res.send(result.rows);

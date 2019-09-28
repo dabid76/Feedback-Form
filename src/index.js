@@ -6,28 +6,33 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 // import logger from 'redux-logger';
 
-let feelings = {
-    numbers: [1,2,3,4,5],
-}
-
-// const dataReducer = (state =[], action) => {
-//     if (action.type === 'DATA_FEEL') {
-//         console.log('payload', action.payload)
-//         return action.payload
-//     } 
-//     return state;
-// }
-
-const feelingReducer = (state = feelings, action) => {
-    if (action.type === 'FEELINGS') {
-        console.log('payload', action.payload)
-        return {
-            ...state,
-            numbers: {
-                numbers: action.payload.numbers
-            }
+const feelingReducer = (state = {
+    feeling: 0,
+    understanding: 0,
+    support: 0,
+    comments: '',
+}, action) => {
+    if (action.type === 'ADD_FEELING') {
+        state = {...state,
+        feeling: action.payload}
+    }
+    else if (action.type === 'ADD_UNDERSTANDING') {
+        state = {...state,
+            understanding: action.payload
         }
-    } 
+    }
+    else if (action.type === 'ADD_SUPPORT') {
+        state = {
+            ...state,
+            support: action.payload
+        }
+    }
+    else if (action.type === 'ADD_COMMENTS') {
+        state = {
+            ...state,
+            comments: action.payload
+        }
+    }
     return state;
 }
 
