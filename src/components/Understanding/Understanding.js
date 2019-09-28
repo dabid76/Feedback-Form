@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import {connect} from 'react-redux'
-import Support from '../Support/Support';
+// import Support from '../Support/Support';
 
 
 class Understanding extends Component {
@@ -10,7 +10,17 @@ class Understanding extends Component {
     handleSubmit = () => {
         console.log('btn getting click')
         this.props.history.push('/support')
-        // this.props.dispatch({ type: 'FEELINGS', payload: this.state.feelingNumbers })
+        this.props.dispatch({ type: 'FEELINGS', payload: this.props.reduxStore.feelingReducer })
+    }
+
+    handdleInputChange = (event, propertyName) => {
+        console.log("in handlechange")
+        this.setState({
+            orderToSend: {
+                ...this.props.feelings,
+                [propertyName]: event.target.value
+            }
+        })
     }
 
 

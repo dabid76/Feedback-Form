@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
-import Understanding from '../Understanding/Understanding';
+// import Understanding from '../Understanding/Understanding';
 
 
 class Feeling extends Component {
@@ -16,26 +16,26 @@ class Feeling extends Component {
         console.log('btn getting click')
         this.props.history.push('/Understanding')
         
-        this.props.dispatch({ type: 'FEELINGS', payload: this.state.feelingNumbers })
+        this.props.dispatch({ type: 'FEELINGS', payload: this.props.reduxStore.feelingReducer })
     }
 
     handdleInputChange = (event, propertyName) => {
         console.log("in handlechange")
         this.setState({
             orderToSend: {
-                ...this.state.orderToSend,
+                ...this.state.feelings,
                 [propertyName]: event.target.value
             }
         })
-    // }
-    // postNumber = () => {
-        axios.post('/feedback')
-            .then(response => {
-                console.log('in posted to database', response)
-            }).catch(error => {
-                console.log('error in order form post ', error)
-            })
     }
+    // postNumber = () => {
+    //     axios.post('/feedback')
+    //         .then(response => {
+    //             console.log('in posted to database', response)
+    //         }).catch(error => {
+    //             console.log('error in post to database ', error)
+    //         })
+    // }
 
 
     render() {

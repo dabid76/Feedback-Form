@@ -18,7 +18,7 @@ class App extends Component {
   getPizza = () => {
     axios.get('/feedback')
     .then((response) => {
-      this.props.dispatch({type: 'LIST_PIZZAS', payload: response.data})
+      this.props.dispatch({type: 'FEELINGS', payload: response.data})
     }).catch((error) => {
       console.log('this is the error:', error)
     })

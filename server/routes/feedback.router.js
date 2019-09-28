@@ -2,16 +2,33 @@ const express = require('express');
 const router = express.Router();
 const pool = require('../modules/pool');
 
-// POST FEELINGS
-router.post('/', async ( req, res) => {
-    const client = await pool.connect();
-    await client.query('BEGIN')
-    const feelingInsert = await client.query(`INSERT INTO "feedback" ("feeling")
-    VALUES ($1) 
-    RETURNING id;`, [feeling]);
+// GET FEELING
+router.get('', (req, res) => {
+    console.log('in get router', req, res);
+    let queryText = 'SELECT * FROM "feedback";' ;
+    pool.query(queryText)
+    .then((result) => {
+        res.send(result.rows);
+    }).catch((err) => {
+        console.log('error on get router', err)
+        res.sendStatus(500);
+    })
+})
 
-    await client.query('COMMIT')
-    res.sendStatus(201);
+
+// POST FEELINGS
+router.post('/',  ( req, res) => {
+    let postData = req.body;
+    console.log('in post router', postData)
+    let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
+    VALUES ($1, $2, $3, $4);` ;
+    pool.query(queryText, [postData.feeling, postData.understanding, postData.support, postData.comments,])
+    .then((result) => {
+        res.sendStatus(201);
+    }).catch((err) => {
+        console.log('error on post router', err )
+        res.sendStatus(500);
+    })
 })
 
 module.exports = router;
