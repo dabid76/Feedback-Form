@@ -4,6 +4,8 @@ import {connect} from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { Button } from '@material-ui/core'
+
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -22,6 +24,7 @@ class admin extends Component {
 
     componentDidMount = () => {
         this.getData();
+        this.flaggedBtn();
     } // end componentDidMount
 
     getData = () => {
@@ -44,6 +47,16 @@ class admin extends Component {
             }) // end axios DELETE
     } // end deleteBtn
 
+    flaggedBtn = (boolean, id) => {
+        let thing = !boolean;
+        axios.put('/feedback/' + id + "/" + thing)
+            .then((result) => {
+                this.getData();
+            }).catch((err) => {
+                console.log(err);
+            }) // end axios PUT
+    } // end flaggedBtn
+
     render() {
         return (
             <>
@@ -56,6 +69,7 @@ class admin extends Component {
                             <th>Support</th>
                             <th>Comments</th>
                             <th>Delete</th>
+                            <th>Flagged</th>
                         </tr>
                 </thead>
                 <tbody>
@@ -70,6 +84,14 @@ class admin extends Component {
                         <DeleteIcon />
                         </IconButton>
                         </td>
+                        {data.flagged ?
+                        <td className="flagged">
+                            <Button variant="contained" onClick={() => this.flaggedBtn(data.flagged, data.id)}>Flag</Button>
+                        </td> :
+                        <td>
+                            <Button variant="contained" onClick={() => this.flaggedBtn(data.flagged, data.id)}>Unflag</Button>
+                        </td>
+                        }
                     </tr>
                     ))}
                 </tbody>
