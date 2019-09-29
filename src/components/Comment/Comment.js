@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import {connect} from 'react-redux'
-import { stringify } from 'querystring';
 
 class Comments extends Component {
 

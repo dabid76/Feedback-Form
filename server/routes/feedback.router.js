@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 router.get('/', (req, res) => {
     let getData = req.body
     console.log('in get router', getData);
-    let queryText = 'SELECT * FROM "feedback" ORDER BY "id";' ;
+    let queryText = 'SELECT * FROM "feedback" ORDER BY "id" DESC;' ;
     pool.query(queryText)
     .then((result) => {
         res.send(result.rows);
@@ -32,12 +32,14 @@ router.post('/',  ( req, res) => {
     })
 })
 
-router.delete( '/delete/:id', (req, res) => {
+// DELETE IN ADMIN
+router.delete( '/:id', (req, res) => {
     let id = req.params.id;
     console.log('Delete route', id);
-    let queryText = `DELETE FROM "feeedback" WHERE "id" = $1;` ;
-    pool.query(queryText, [id]).then((result) => {
-        console.log(result)
+    let queryText = `DELETE FROM "feedback" WHERE "id" = $1` ;
+    pool.query(queryText, [id])
+    .then((result) => {
+        console.log('in results', result)
         res.sendStatus(200)
     })
     .catch((error) => {

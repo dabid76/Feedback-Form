@@ -22,17 +22,18 @@ class ThankYou extends Component {
             })
     }
 
-    handleSubmit = (id) => {
+    deleteBtn = (id) => {
         // event.preventDefault();
         console.log('btn getting click')
-            axios.delete(`/feedback/delete/${id}`)
+        axios.delete(`/feedback/` + id)
             .then((response) => {
-                console.log(response);
-                this.getDatak()
+                console.log(response.data);
+                this.getData()
             }).catch((error) => {
-                console.log('error on delete:', error)
+                console.log('this is the error:', error)
             })
     }
+
 
 
         
@@ -62,7 +63,7 @@ class ThankYou extends Component {
                         <td>{data.support}</td>
                         <td>{data.comments}</td>
                         <td>
-                            <button onClick={this.handleSubmit} className="submitBtn">Delete</button>
+                        <button onClick={()=>this.deleteBtn(data.id)}>Delete</button>
                         </td>
                     </tr>
                 )
