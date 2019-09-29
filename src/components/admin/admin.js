@@ -36,7 +36,6 @@ class admin extends Component {
     } // end getData
 
     deleteBtn = (id) => {
-        console.log('btn getting click')
         axios.delete(`/feedback/` + id)
             .then((response) => {
                 console.log(response.data);

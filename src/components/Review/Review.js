@@ -3,9 +3,7 @@ import axios from 'axios';
 import {connect} from 'react-redux'
 import {HashRouter as Router, Link} from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-// import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
-// import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -38,14 +36,7 @@ class Review extends Component {
             }) // end axios GET
     } // end getData
 
-    // handleBack = () => {
-    //     console.log('btn getting click')
-    //     this.props.history.push('/comment')
-    // } // end handleBack
-
     handleSubmit = (event) => {
-        // event.preventDefault();
-        console.log('btn getting click')
         this.props.history.push('/5')
 
         axios.post('/feedback', this.props.reduxStore.feelingReducer)
@@ -78,7 +69,6 @@ class Review extends Component {
                         <IconButton onClick={()=>this.handleSubmit()} className={useStyles.button}>
                         Submit
                         </IconButton>
-                    {/* <button onClick={this.handleSubmit} className="submitBtn">Submit</button> */}
             </Router>
             </>
         ); // end return

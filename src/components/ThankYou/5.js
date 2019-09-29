@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import {connect} from 'react-redux'
 
 class ThankYou extends Component {
@@ -7,7 +6,6 @@ class ThankYou extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.props.history.push('/')
-        console.log('btn getting click')
     } // end handleSubmit
     
     render() {

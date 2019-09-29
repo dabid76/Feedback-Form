@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
 import {connect} from 'react-redux'
 import { makeStyles } from '@material-ui/core/styles';
-// import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import IconButton from '@material-ui/core/IconButton';
-// import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
-// import Support from '../Support/Support';
 
 const useStyles = makeStyles(theme => ({
     button: {
@@ -16,7 +12,6 @@ const useStyles = makeStyles(theme => ({
     },
   }));
 
-
 class Understanding extends Component {
 
     state= {
@@ -24,7 +19,6 @@ class Understanding extends Component {
     } // end state
     
     handleSubmit = () => {
-        console.log('btn getting click')
         if (this.state.understanding === ''){
             alert('You must fill the input.')
         } else {
@@ -34,12 +28,10 @@ class Understanding extends Component {
     } // end handleSubmit
 
     handleBack = () => {
-        console.log('btn getting click')
         this.props.history.push('/')
     } // end handleBack
 
     handdleInputChange = (event) => {
-        console.log('handleChange', event.target.value)
         this.setState({
             understanding: event.target.value})
     } // end handdleInputChange
@@ -61,8 +53,7 @@ class Understanding extends Component {
                         <IconButton onClick={()=>this.handleSubmit()} className={useStyles.button}>
                         Next
                         </IconButton>
-                    {/* <button onClick={this.handleBack} className="backBtn">BACK</button>
-                    <button onClick={this.handleSubmit} className="nextBtn">NEXT</button> */}
+
             </>
         ); // end return
     } // end render
