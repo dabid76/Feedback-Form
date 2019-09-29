@@ -30,7 +30,6 @@ class Review extends Component {
                 this.setState({
                     reviewFeedBack: response.data
                 })
-                console.log('in get to database', response.data)
             }).catch(error => {
                 console.log('error in get to database ', error)
             }) // end axios GET
@@ -41,7 +40,6 @@ class Review extends Component {
 
         axios.post('/feedback', this.props.reduxStore.feelingReducer)
             .then(response => {
-                console.log('in posted to database', response.data)
             }).catch(error => {
                 console.log('error in post to database ', error)
             }) // end axios POST

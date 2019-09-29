@@ -31,7 +31,6 @@ class Comments extends Component {
     handleSubmit = () => {
             this.props.history.push('/Review')
             this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
-        console.log(this.props.reduxStore.feelingReducer)
     } // end handleSubmit
  
     render() {
