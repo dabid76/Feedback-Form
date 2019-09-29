@@ -43,6 +43,9 @@ class Support extends Component {
                     <p>
                         Support?
                     </p>
+                    <p>
+                        Rate 1 through 5
+                    </p>
                         <div className="support">
                             <input type='number' min="1" max="5" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
                         </div>

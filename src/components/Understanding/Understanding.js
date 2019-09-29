@@ -43,6 +43,9 @@ class Understanding extends Component {
                     <p>
                         Understanding?
                     </p>
+                    <p>
+                        Rate 1 through 5
+                    </p>
                         <div className="understanding">
                             <input type='number' min="1" max="5" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
                         </div>
