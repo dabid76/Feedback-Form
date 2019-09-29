@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import {connect} from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+// import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 // import Understanding from '../Understanding/Understanding';
+
+const useStyles = makeStyles(theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+    input: {
+      display: 'none',
+    },
+  }));
+
 
 class Feeling extends Component {
 
@@ -36,7 +49,12 @@ class Feeling extends Component {
                         <div className="feelings">
                             <input type="number" min="1" max="5" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
                         </div>
-                    <button onClick={this.handleSubmit} className="nextBtn">NEXT</button>
+                        <IconButton onClick={()=>this.handleSubmit()} className={useStyles.button}>
+                        {/* <ArrowForwardIcon /> */}
+                        Next
+                        </IconButton>
+                        <br/>
+                    {/* <button onClick={this.handleSubmit} className="nextBtn">NEXT</button> */}
             </>
         ); // end return
     } // end render

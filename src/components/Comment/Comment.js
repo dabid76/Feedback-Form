@@ -1,6 +1,19 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import {connect} from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles';
+// import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import IconButton from '@material-ui/core/IconButton';
+// import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+
+const useStyles = makeStyles(theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+    input: {
+      display: 'none',
+    },
+  }));
 
 class Comments extends Component {
 
@@ -37,8 +50,15 @@ class Comments extends Component {
                         <div className="comments">
                             <input onChange={(event) => this.handdleInputChange(event, 'number')} />
                         </div>
-                    <button onClick={this.handleBack} className="backBtn">BACK</button>
-                    <button onClick={this.handleSubmit} className="nextBtn">Next</button>
+                        <IconButton onClick={()=>this.handleBack()} className={useStyles.button}>
+                        Back
+                        </IconButton>
+
+                        <IconButton onClick={()=>this.handleSubmit()} className={useStyles.button}>
+                        Next
+                        </IconButton>
+                    {/* <button onClick={this.handleBack} className="backBtn">BACK</button>
+                    <button onClick={this.handleSubmit} className="nextBtn">Next</button> */}
             </>
         ); // end return
     } // end render

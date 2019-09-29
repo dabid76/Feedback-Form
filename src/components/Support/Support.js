@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
 import {connect} from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles';
+// import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import IconButton from '@material-ui/core/IconButton';
+// import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 // import Comment from '../Comment/Comment';
+
+const useStyles = makeStyles(theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+    input: {
+      display: 'none',
+    },
+  }));
 
 class Support extends Component {
 
@@ -40,8 +53,15 @@ class Support extends Component {
                         <div className="support">
                             <input type='number' min="1" max="5" onChange={(event) => this.handdleInputChange(event, 'numbers')} />
                         </div>
-                    <button onClick={this.handleBack} className="backBtn">BACK</button>
-                    <button onClick={this.handleSubmit} className="nextBtn">NEXT</button>
+                        <IconButton onClick={()=>this.handleBack()} className={useStyles.button}>
+                        Back
+                        </IconButton>
+
+                        <IconButton onClick={()=>this.handleSubmit()} className={useStyles.button}>
+                        Next
+                        </IconButton>
+                    {/* <button onClick={this.handleBack} className="backBtn">BACK</button>
+                    <button onClick={this.handleSubmit} className="nextBtn">NEXT</button> */}
             </>
         ); // end return
     } // end render

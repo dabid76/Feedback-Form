@@ -1,7 +1,20 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
-import {HashRouter as Link} from 'react-router-dom';
+import {HashRouter as Router, Link} from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+// import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import IconButton from '@material-ui/core/IconButton';
+// import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+
+const useStyles = makeStyles(theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+    input: {
+      display: 'none',
+    },
+  }));
 
 class Review extends Component {
 
@@ -25,13 +38,13 @@ class Review extends Component {
             }) // end axios GET
     } // end getData
 
-    handleBack = () => {
-        console.log('btn getting click')
-        this.props.history.push('/comment')
-    } // end handleBack
+    // handleBack = () => {
+    //     console.log('btn getting click')
+    //     this.props.history.push('/comment')
+    // } // end handleBack
 
     handleSubmit = (event) => {
-        event.preventDefault();
+        // event.preventDefault();
         console.log('btn getting click')
         this.props.history.push('/5')
 
@@ -46,6 +59,7 @@ class Review extends Component {
     render() {
         return (
             <>
+            <Router>
                 <h1>Review Your Feedback</h1>
                     <div>   
                         <Link to="/" className="main-nav">Feelings</Link>: {this.props.reduxStore.feelingReducer.feeling}
@@ -61,7 +75,11 @@ class Review extends Component {
                     </div>
                         <br/>
                         <br/>
-                    <button onClick={this.handleSubmit} className="submitBtn">Submit</button>
+                        <IconButton onClick={()=>this.handleSubmit()} className={useStyles.button}>
+                        Submit
+                        </IconButton>
+                    {/* <button onClick={this.handleSubmit} className="submitBtn">Submit</button> */}
+            </Router>
             </>
         ); // end return
     } // end render

@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux'
+import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
+const useStyles = makeStyles(theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+    input: {
+      display: 'none',
+    },
+  }));
+  
 class admin extends Component {
 
     state = {
@@ -56,7 +68,9 @@ class admin extends Component {
                         <td>{data.support}</td>
                         <td>{data.comments}</td>
                         <td>
-                        <button onClick={()=>this.deleteBtn(data.id)}>Delete</button>
+                        <IconButton onClick={()=>this.deleteBtn(data.id)} className={useStyles.button} aria-label="delete">
+                        <DeleteIcon />
+                        </IconButton>
                         </td>
                     </tr>
                     ))}
