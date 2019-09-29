@@ -14,8 +14,7 @@ router.get('/', (req, res) => {
         console.log('error on get router', err)
         res.sendStatus(500);
     })
-})
-
+}) // end GET
 
 // POST FEELINGS
 router.post('/',  ( req, res) => {
@@ -30,7 +29,7 @@ router.post('/',  ( req, res) => {
         console.log('error on post router', err )
         res.sendStatus(500);
     })
-})
+}) // end POST
 
 // DELETE IN ADMIN
 router.delete( '/:id', (req, res) => {
@@ -46,6 +45,6 @@ router.delete( '/:id', (req, res) => {
         console.log("error on router.delete", error)
         res.sendStatus(500);
     })
-}) 
+}) // end DELETE
 
 module.exports = router;

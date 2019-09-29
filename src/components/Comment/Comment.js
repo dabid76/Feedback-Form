@@ -6,67 +6,44 @@ class Comments extends Component {
 
     state = {
         comments: '',
-    }
+    } // end state
 
     handdleInputChange = (event) => {
         console.log('handleChange', event.target.value)
-        
-
             this.setState({
                 comments: event.target.value
-            })
-    }
+            }) // end setState
+    } // end handdleInputChange
 
+    handleBack = () => {
+        console.log('btn getting click')
+        this.props.history.push('/support')
+    } // end handleBack
 
     handleSubmit = () => {
-        // event.preventDefault();
-
         console.log('btn getting click')
-        // if (this.state.comments === ''){
-        //     alert('You must fill comments.')
-        // } else {
             this.props.history.push('/Review')
-            
             this.props.dispatch({ type: 'ADD_COMMENTS', payload: this.state.comments })
-        // }
-            // this.props.getData()
-        
         console.log(this.props.reduxStore.feelingReducer)
-        // {JSON.stringify(reviewFeedback)}
-            // axios.post('/feedback', this.props.reduxStore.feelingReducer)
-            //     .then(response => {
-            //         this.props.getData()
-            //         console.log('in posted to database', response.data)
-            //         // this.props.history.push('/Review')
-            //     }).catch(error => {
-            //         console.log('error in post to database ', error)
-            //     })
-            }
-    
-
-        
-        
-
-    
-
+    } // end handleSubmit
+ 
     render() {
         return (
             <>
                 <h3>Any comments you want to leave?</h3>
-                <p>
-                    Comments?
-                </p>
-                <div className="comments">
-                    <input onChange={(event) => this.handdleInputChange(event, 'number')} />
-                    
-                </div>
-
-                
-            <button onClick={this.handleSubmit} className="nextBtn">Next</button>
+                    <p>
+                        Comments?
+                    </p>
+                        <div className="comments">
+                            <input onChange={(event) => this.handdleInputChange(event, 'number')} />
+                        </div>
+                    <button onClick={this.handleBack} className="backBtn">BACK</button>
+                    <button onClick={this.handleSubmit} className="nextBtn">Next</button>
             </>
-        );
-    }
-}
+        ); // end return
+    } // end render
+} // end Comments component
+
 const mapStateToProps = (reduxStore) => ({
     reduxStore
 })

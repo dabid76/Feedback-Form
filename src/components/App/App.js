@@ -11,11 +11,7 @@ import Review from '../Review/Review';
 import ThankYou from '../ThankYou/5';
 import admin from '../admin/admin';
 
-
-
 class App extends Component {
-
-
 
   render() {
     return (
@@ -25,42 +21,21 @@ class App extends Component {
           <h1 className="App-title">Feedback!</h1>
           <h4><i>Don't forget it!</i></h4>
         </header>
-        {/* <h1>
-          How are you feeling?
-        </h1> */}
 
-        <ul className="main-nav">
-            {/* <li className="main-nav-li">
-              <Link to="/">Feeling</Link>
-            </li> */}
-            {/* <li className="main-nav-li">
-              <Link to="/Understanding">Understanding</Link>
-            </li>
-            <li className="main-nav-li">
-              <Link to="/Comment">Comment</Link>
-            </li>
-            <li className="main-nav-li">
-              <Link to="/Support">Support</Link>
-            </li> */}
-          </ul>
-        <Route path="/" exact component={Feeling} />
-        <Route path="/Understanding" component={Understanding}/>
-        <Route path="/Comment" component={Comment}/>
-        <Route path="/Support" component={Support} />
-        <Route path="/Review" component={Review} />
-        <Route path="/5" component={ThankYou} />
-        <Route path="/admin" component={admin} />
+          <Route path="/" exact component={Feeling} />
+          <Route path="/Understanding" component={Understanding}/>
+          <Route path="/Comment" component={Comment}/>
+          <Route path="/Support" component={Support} />
+          <Route path="/Review" component={Review} />
+          <Route path="/5" component={ThankYou} />
+          <Route path="/admin" component={admin} />
 
-        {/* <Feeling /> */}
-        {/* <Understanding /> */}
-        {/* <Support /> */}
-        {/* <Comment /> */}
         <br/>
       </div>
       </Router>
-    );
-  }
-}
+    ); // end return
+  } // end render
+} // end App component
 
 const StateToProps = (reduxState) => ({
   reduxState

@@ -4,47 +4,40 @@ import './index.css';
 import App from './components/App/App';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
-// import logger from 'redux-logger';
 
 const feelingReducer = (state = {
-    // feeling: 0,
-    // understanding: 0,
-    // support: 0,
-    // comments: '',
 }, action) => {
             
     if (action.type === 'ADD_FEELING') {
         state = {
             ...state,
         feeling: action.payload
-        }
-    }
+        } // end state
+    } // end ADD_FEELING
     else if (action.type === 'ADD_UNDERSTANDING') {
         state = {...state,
             understanding: action.payload
-        }
-    }
+        } // end state
+    } // end ADD_UNDERSTANDING
     else if (action.type === 'ADD_SUPPORT') {
         state = {
             ...state,
             support: action.payload
-        }
-    }
+        } // end state
+    } // end ADD_SUPPOR
     else if (action.type === 'ADD_COMMENTS') {
         state = {
             ...state,
             comments: action.payload
-        }
-    }
+        } // end state
+    } // end ADD_COMMENTS
     return state;
-}
+} // end feelingReducer
 
 const reduxStore = createStore(
     combineReducers({
-        // dataReducer,
         feelingReducer
-    }),
-    // applyMiddleware(logger)
-);
+    }), // end combineReducers
+); // end reduxStor
 
 ReactDOM.render(<Provider store={reduxStore}><App /></Provider>, document.getElementById('root'));
