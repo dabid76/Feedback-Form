@@ -27,7 +27,7 @@ sql postical
 3: You rank how well are you being supported from 1 being the lowest and 5 the highest
 4: You can leave a comment if you want
 5: You have a chance to review you inputs and if you want to change any just click on the one you want to change
-6: Lastly you can add another review if you would like.
+6: Lastly you can add another review if you would like
 
 ## Built With
 React.js
