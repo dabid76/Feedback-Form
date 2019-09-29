@@ -7,15 +7,15 @@ Duration: 3 full days.
 I had a couple problems with this project mainly getting it talking with the database, I solve this problem by console logging every time it had to talk to the datebase and checking everything carefully.
 
 ## Prerequisites
-axios
-react
-pg
-express
-sql postical
+axios   
+react   
+pg  
+express 
+sql postical    
 
 ## Installation
-1: Create a database see "data.sql"
-2: Open up your editor of choice and run an npm install
+1: Create a database see "data.sql" 
+2: Open up your editor of choice and run an npm install 
 3: Run npm run server in your terminal
 4: Run npm run client in your terminal
 5: The npm run client command will open up a new browser tab for you!
