@@ -4,7 +4,7 @@
 ## Description
 Duration: 3 full days.
 
-I had a couple problems with this project mainly getting it talking with the database, I solve this problem by console logging every time it had to talk to the datebase and checking everything carefully.
+I had a couple problems with this project mainly getting it talking with the database, I solve this problem by console logging every time it had to talk to the datebase and checking everything carefully. To see the fully functional site, please visit: https://feedback-form-01.herokuapp.com/
 
 ## Prerequisites
 axios   
